@@ -10,16 +10,20 @@ Data synchronization tool based on MySql "load data infile", suitable for fast d
 
 ######  - 2.在resources/db.properties 有如下配置from1 from1 为数据源 target为目标数据库
 
-```html
-jdbc.url.from1=jdbc:mysql://127.0.0.1:3306/t1?useUnicode=true&characterEncoding=UTF8&autoReconnect=true jdbc.driver.from1=com.mysql.jdbc.Driver jdbc.user.from1=root jdbc.password.from1=root
 
-jdbc.url.from2=jdbc:mysql://127.0.0.1:3306/t2?useUnicode=true&characterEncoding=UTF8&autoReconnect=true jdbc.driver.from2=com.mysql.jdbc.Driver jdbc.user.from2=root jdbc.password.from2=root
-
-jdbc.url.target=jdbc:mysql://127.0.0.1:3306/t3?useUnicode=true&characterEncoding=UTF8&autoReconnect=true jdbc.driver.target=com.mysql.jdbc.Driver jdbc.user.target=root jdbc.password.target=root
-
-exclude-table=data2|data3
-exclude-table-column=data1->id-age|data2->id,
-```
+    jdbc.url.from1=jdbc:mysql://127.0.0.1:3306/t1?useUnicode=true&characterEncoding=UTF8&autoReconnect=true jdbc.driver.from1=com.mysql.jdbc.Driver
+    jdbc.user.from1=root
+    jdbc.password.from1=root
+    
+    jdbc.url.from2=jdbc:mysql://127.0.0.1:3306/t2?useUnicode=true&characterEncoding=UTF8&autoReconnect=true jdbc.driver.from2=com.mysql.jdbc.Driver
+    jdbc.user.from2=root
+    jdbc.password.from2=root
+    
+    jdbc.url.target=jdbc:mysql://127.0.0.1:3306/t3?useUnicode=true&characterEncoding=UTF8&autoReconnect=true jdbc.driver.target=com.mysql.jdbc.Driver jdbc.user.target=root jdbc.password.target=root
+    
+    exclude-table=data2|data3
+    exclude-table-column=data1->id-age|data2->id,
+    
 
 exclude-table：表示需要排除的表 如果有多张则用|分割 例如配置 table1|table2 则同步过程中排除 table1 和 table2 的表 exclude-table-column:表示需要排除某张表中的某个字段不需要同步数据 例如配置 data1->id-age 则表示 排除data1表中 的id字段和age字段的数据不需要同步如有多个表字段用|分开
 
